@@ -98,7 +98,7 @@
       .card {
         display: flex;
         flex-direction: column;
-        height: 100%; 
+        height: 100%;
         border: 1px solid #ddd;
         padding: 20px;
         background-color: #f8f9fa;
@@ -106,23 +106,23 @@
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         transition: transform 0.3s ease-in-out;
       }
-      
+
       .card-body {
-        flex-grow: 1; 
+        flex-grow: 1;
       }
-      
+
       .card i {
         font-size: 3rem;
         color: #007bff;
       }
-      
+
       .card-title {
         margin-top: 20px;
       }
-      
+
       .card-text {
         margin-top: 15px;
-        flex-grow: 1; 
+        flex-grow: 1;
       }
 
       .card:hover {
@@ -136,10 +136,12 @@
         gap: 20px;
         justify-content: space-between;
       }
-      
+
       .col-md-4 {
         flex: 1 1 calc(33.33% - 20px); /* Tres tarjetas por fila */
-        max-width: calc(33.33% - 20px); /* Asegura que las tarjetas se alineen correctamente */
+        max-width: calc(
+          33.33% - 20px
+        ); /* Asegura que las tarjetas se alineen correctamente */
       }
 
       .carousel-inner {
@@ -309,7 +311,6 @@
       <div class="container text-center">
         <h2 class="mb-4">Servicios</h2>
         <div class="row">
-
           <!-- Landing Page -->
           <div class="col-md-4" data-aos="fade-up">
             <div class="card">
@@ -408,52 +409,47 @@
     <section id="about" class="py-5">
       <div class="container text-center">
         <h2 class="mb-4">Nosotros</h2>
-        <p>
-          En ConectaWeb, somos un equipo de profesionales apasionados por crear
-          soluciones web personalizadas que se ajustan a las necesidades de cada
-          cliente. Nuestra misión es ayudar a pequeñas y medianas empresas a
-          mejorar su presencia digital a través de sitios web innovadores,
-          funcionales y adaptados a los objetivos de cada negocio.
+        <p class="lead mb-4">
+          Somos una agencia digital dedicada a crear soluciones innovadoras para
+          negocios de todos los tamaños. Nuestra misión es ayudar a nuestros
+          clientes a destacarse en el mundo online, brindando servicios
+          personalizados y de alta calidad.
         </p>
-        <div class="row mt-4">
-          <div class="col-md-4">
-            <img
-              src="your-team-image.jpg"
-              alt="Nuestro equipo"
-              class="img-fluid rounded-circle mb-3"
-              style="width: 200px; height: 200px; object-fit: cover"
-            />
-            <h5>Nuestro Equipo</h5>
-            <p>
-              Somos un equipo diverso de diseñadores, desarrolladores y
-              estrategas, comprometidos con la excelencia en cada proyecto.
-            </p>
+        <div class="row">
+          <!-- Misión -->
+          <div class="col-md-4" data-aos="fade-up">
+            <div class="icon-box">
+              <i class="fas fa-bullseye fa-3x text-primary"></i>
+              <h5 class="mt-3">Nuestra Misión</h5>
+              <p>
+                Nos dedicamos a ofrecer soluciones digitales innovadoras que
+                ayuden a nuestros clientes a crecer en el mundo online.
+              </p>
+            </div>
           </div>
-          <div class="col-md-4">
-            <img
-              src="your-vision-image.jpg"
-              alt="Visión"
-              class="img-fluid rounded-circle mb-3"
-              style="width: 200px; height: 200px; object-fit: cover"
-            />
-            <h5>Visión</h5>
-            <p>
-              Buscamos ser una empresa líder en soluciones web, siendo el aliado
-              de negocios que desean transformar su presencia digital.
-            </p>
+
+          <!-- Visión -->
+          <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+            <div class="icon-box">
+              <i class="fas fa-eye fa-3x text-primary"></i>
+              <h5 class="mt-3">Nuestra Visión</h5>
+              <p>
+                Ser una agencia líder en transformación digital, reconocida por
+                la calidad y efectividad de nuestras soluciones.
+              </p>
+            </div>
           </div>
-          <div class="col-md-4">
-            <img
-              src="your-values-image.jpg"
-              alt="Nuestros valores"
-              class="img-fluid rounded-circle mb-3"
-              style="width: 200px; height: 200px; object-fit: cover"
-            />
-            <h5>Valores</h5>
-            <p>
-              La honestidad, innovación y el compromiso con la calidad son los
-              valores que guían cada uno de nuestros proyectos.
-            </p>
+
+          <!-- Valores -->
+          <div class="col-md-4" data-aos="fade-up" data-aos-delay="400">
+            <div class="icon-box">
+              <i class="fas fa-heart fa-3x text-primary"></i>
+              <h5 class="mt-3">Nuestros Valores</h5>
+              <p>
+                Innovación, creatividad, honestidad y trabajo en equipo son la
+                base de nuestra cultura empresarial.
+              </p>
+            </div>
           </div>
         </div>
       </div>
