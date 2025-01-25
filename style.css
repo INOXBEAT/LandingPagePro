@@ -35,6 +35,17 @@
         z-index: -1;
       }
 
+      .hero-video {
+        width: 100%;
+        height: auto;
+        transition: filter 0.3s ease;
+    }
+    
+    .hero-video:hover {
+        filter: brightness(0.4);
+    }
+    
+
       .video-background {
         position: absolute;
         top: 0;
@@ -44,6 +55,11 @@
         object-fit: cover;
         z-index: -1;
         will-change: transform;
+      }
+
+
+      .container text-center {
+        position: relative; z-index: 2;
       }
 
       .card {
@@ -85,14 +101,7 @@
         display: flex;
         flex-wrap: wrap;
         gap: 20px;
-        justify-content: space-between;
-      }
-
-      .col-md-4 {
-        flex: 1 1 calc(33.33% - 20px); /* Tres tarjetas por fila */
-        max-width: calc(
-          33.33% - 20px
-        ); /* Asegura que las tarjetas se alineen correctamente */
+        justify-content: center;
       }
 
       .carousel-inner {
