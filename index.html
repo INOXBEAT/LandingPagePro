@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bienvenido a Nuestro Producto</title>
+
+    <!-- Bootstrap 5 CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+
+    <!-- Font Awesome -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+      rel="stylesheet"
+    />
+
+    <!-- SweetAlert CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.16/dist/sweetalert2.min.css"
+      rel="stylesheet"
+    />
+
+    <!-- AOS Animation Library -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css"
+      rel="stylesheet"
+    />
+
+    <!-- Slick Carousel -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"
+    />
+
+    <!-- Google Fonts (Kanit & Urbanist) -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Custom CSS -->
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap");
+
+      * {
+        font-family: "Urbanist", sans-serif;
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-size: 1rem;
+        line-height: 1.5;
+      }
+
+      .hero-section {
+        background-size: cover;
+        background-attachment: fixed;
+        background-position: center center;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .hero-section::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.4);
+        z-index: -1;
+      }
+
+      .video-background {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        z-index: -1;
+        will-change: transform;
+      }
+
+      .card {
+        display: flex;
+        flex-direction: column;
+        height: 100%; 
+        border: 1px solid #ddd;
+        padding: 20px;
+        background-color: #f8f9fa;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease-in-out;
+      }
+      
+      .card-body {
+        flex-grow: 1; 
+      }
+      
+      .card i {
+        font-size: 3rem;
+        color: #007bff;
+      }
+      
+      .card-title {
+        margin-top: 20px;
+      }
+      
+      .card-text {
+        margin-top: 15px;
+        flex-grow: 1; 
+      }
+
+      .card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+      }
+
+      .row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        justify-content: space-between;
+      }
+      
+      .col-md-4 {
+        flex: 1 1 calc(33.33% - 20px); /* Tres tarjetas por fila */
+        max-width: calc(33.33% - 20px); /* Asegura que las tarjetas se alineen correctamente */
+      }
+
+      .carousel-inner {
+        background-color: rgba(255, 255, 255, 0.8);
+        padding: 30px;
+        border-radius: 10px;
+      }
+
+      .carousel-item {
+        font-style: italic;
+      }
+
+      .carousel-item p {
+        font-size: 1.25rem;
+        color: #333;
+      }
+
+      .carousel-control-prev-icon,
+      .carousel-control-next-icon {
+        background-color: #28a745;
+        border-radius: 50%;
+        padding: 10px;
+      }
+
+      .carousel-control-prev-icon:hover,
+      .carousel-control-next-icon:hover {
+        background-color: #218838;
+      }
+
+      #cta .btn {
+        position: fixed;
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 10;
+        transition: transform 0.3s ease;
+      }
+
+      @media screen and (max-width: 768px) {
+        .hero-section {
+          background-attachment: scroll;
+        }
+        .video-background {
+          object-fit: cover;
+        }
+      }
+
+      /* Navbar Custom */
+      .navbar {
+        background-color: #2a2a2a;
+      }
+      .navbar a {
+        color: #fff !important;
+      }
+      .navbar-brand {
+        font-weight: 600;
+      }
+      .navbar-nav .nav-link:hover {
+        color: #28a745 !important;
+      }
+
+      /* Portfolio */
+      .portfolio-item {
+        position: relative;
+        overflow: hidden;
+        border-radius: 10px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        margin-bottom: 30px;
+      }
+
+      .portfolio-item img {
+        width: 100%;
+        transition: transform 0.5s ease;
+      }
+
+      .portfolio-item:hover img {
+        transform: scale(1.1);
+      }
+
+      .footer {
+        background-color: #2a2a2a;
+        color: white;
+        padding: 40px 0;
+        text-align: center;
+      }
+
+      .footer a {
+        color: #28a745;
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+      <div class="container">
+        <a class="navbar-brand" href="#">ConectaWeb</a>
+
+        <!-- Zona de contacto centrada -->
+        <span class="navbar-text contact-center mx-auto">
+          <!-- Zona de contacto en el centro -->
+          <a href="tel:+1234567890" class="text-decoration-none"
+            >+1 234 567 890</a
+          >
+          |
+          <a href="mailto:contacto@tusitio.com" class="text-decoration-none"
+            >contacto@tusitio.com</a
+          >
+        </span>
+
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="#about">Nosotros</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#features">Servicios</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#portfolio">Portafolio</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#plans">Planes Web</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#contact">Contacto</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section
+      class="hero-section"
+      style="background-image: url('your-hero-image.jpg')"
+    >
+      <video autoplay muted loop class="video-background">
+        <source
+          src="https://videos.pexels.com/video-files/3129671/3129671-uhd_2560_1440_30fps.mp4"
+          type="video/mp4"
+        />
+      </video>
+      <div class="container text-center">
+        <h1 class="text-white">Bienvenido a ConectaWeb</h1>
+        <p class="text-white">
+          Soluciones web personalizadas para impulsar tu negocio
+        </p>
+        <a href="#features" class="btn btn-primary">Descubre Más</a>
+      </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="py-5 bg-light">
+      <div class="container text-center">
+        <h2 class="mb-4">Servicios</h2>
+        <div class="row">
+
+          <!-- Landing Page -->
+          <div class="col-md-4" data-aos="fade-up">
+            <div class="card">
+              <div class="card-body">
+                <i class="fas fa-file-alt fa-3x text-primary"></i>
+                <!-- Cambié el ícono por uno que represente más a las landing pages -->
+                <h5 class="card-title mt-3">Landing Page</h5>
+                <p class="card-text">
+                  Ideal para campañas de marketing, promociones o negocios que
+                  necesitan captar la atención rápidamente
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Sitios Web -->
+          <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+            <div class="card">
+              <div class="card-body">
+                <i class="fas fa-globe fa-3x text-primary"></i>
+                <!-- Ícono relacionado con sitios web -->
+                <h5 class="card-title mt-3">Sitios web</h5>
+                <p class="card-text">
+                  Perfecto para pequeñas empresas, emprendedores y profesionales
+                  independientes que buscan tener presencia online
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Tienda en línea -->
+          <div class="col-md-4" data-aos="fade-up" data-aos-delay="400">
+            <div class="card">
+              <div class="card-body">
+                <i class="fas fa-shopping-cart fa-3x text-primary"></i>
+                <!-- Ícono más apropiado para tiendas en línea -->
+                <h5 class="card-title mt-3">Tienda en línea</h5>
+                <p class="card-text">
+                  Aumenta la venta de productos de cualquier tipo, ideal para
+                  negocios que desean expandir sus ventas a través de la web
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Rediseño Web y Optimización -->
+          <div class="col-md-4" data-aos="fade-up" data-aos-delay="400">
+            <div class="card">
+              <div class="card-body">
+                <i class="fas fa-sync-alt fa-3x text-primary"></i>
+                <!-- Ícono relacionado con la renovación y optimización -->
+                <h5 class="card-title mt-3">Rediseño Web y Optimización</h5>
+                <p class="card-text">
+                  Es ideal para negocios que ya tienen una página web pero
+                  necesitan mejorarla para mantenerse competitivos
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Consultoría -->
+          <div class="col-md-4" data-aos="fade-up" data-aos-delay="400">
+            <div class="card">
+              <div class="card-body">
+                <i class="fas fa-chalkboard-teacher fa-3x text-primary"></i>
+                <!-- Ícono relacionado con asesoría o consultoría -->
+                <h5 class="card-title mt-3">Consultoría</h5>
+                <p class="card-text">
+                  Perfecto para negocios pequeños que necesitan orientación
+                  estratégica para maximizar su presencia digital
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Mantenimiento Web -->
+          <div class="col-md-4" data-aos="fade-up" data-aos-delay="400">
+            <div class="card">
+              <div class="card-body">
+                <i class="fas fa-tools fa-3x text-primary"></i>
+                <!-- Ícono relacionado con mantenimiento y soporte -->
+                <h5 class="card-title mt-3">Mantenimiento Web</h5>
+                <p class="card-text">
+                  Ideal para profesionales independientes y pequeñas empresas
+                  que no tienen tiempo para encargarse del mantenimiento diario
+                  de su web
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Nosotros Section -->
+    <section id="about" class="py-5">
+      <div class="container text-center">
+        <h2 class="mb-4">Nosotros</h2>
+        <p>
+          En ConectaWeb, somos un equipo de profesionales apasionados por crear
+          soluciones web personalizadas que se ajustan a las necesidades de cada
+          cliente. Nuestra misión es ayudar a pequeñas y medianas empresas a
+          mejorar su presencia digital a través de sitios web innovadores,
+          funcionales y adaptados a los objetivos de cada negocio.
+        </p>
+        <div class="row mt-4">
+          <div class="col-md-4">
+            <img
+              src="your-team-image.jpg"
+              alt="Nuestro equipo"
+              class="img-fluid rounded-circle mb-3"
+              style="width: 200px; height: 200px; object-fit: cover"
+            />
+            <h5>Nuestro Equipo</h5>
+            <p>
+              Somos un equipo diverso de diseñadores, desarrolladores y
+              estrategas, comprometidos con la excelencia en cada proyecto.
+            </p>
+          </div>
+          <div class="col-md-4">
+            <img
+              src="your-vision-image.jpg"
+              alt="Visión"
+              class="img-fluid rounded-circle mb-3"
+              style="width: 200px; height: 200px; object-fit: cover"
+            />
+            <h5>Visión</h5>
+            <p>
+              Buscamos ser una empresa líder en soluciones web, siendo el aliado
+              de negocios que desean transformar su presencia digital.
+            </p>
+          </div>
+          <div class="col-md-4">
+            <img
+              src="your-values-image.jpg"
+              alt="Nuestros valores"
+              class="img-fluid rounded-circle mb-3"
+              style="width: 200px; height: 200px; object-fit: cover"
+            />
+            <h5>Valores</h5>
+            <p>
+              La honestidad, innovación y el compromiso con la calidad son los
+              valores que guían cada uno de nuestros proyectos.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="py-5 bg-light">
+      <div class="container text-center">
+        <h2 class="mb-4">Nuestro Portafolio</h2>
+        <div class="row">
+          <div class="col-md-4 portfolio-item" data-aos="fade-up">
+            <img
+              src="https://via.placeholder.com/350x200"
+              alt="Portfolio Item"
+            />
+          </div>
+          <div
+            class="col-md-4 portfolio-item"
+            data-aos="fade-up"
+            data-aos-delay="200"
+          >
+            <img
+              src="https://via.placeholder.com/350x200"
+              alt="Portfolio Item"
+            />
+          </div>
+          <div
+            class="col-md-4 portfolio-item"
+            data-aos="fade-up"
+            data-aos-delay="400"
+          >
+            <img
+              src="https://via.placeholder.com/350x200"
+              alt="Portfolio Item"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Plans Section -->
+    <section id="plans" class="py-5">
+      <div class="container text-center">
+        <h2 class="mb-4">Planes Web</h2>
+        <div class="row">
+          <!-- Plan Básico -->
+          <div class="col-md-4" data-aos="fade-up">
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title">Plan Básico</h5>
+                <p class="card-text">Ideal para proyectos pequeños.</p>
+                <p class="h3">$99 / mes</p>
+                <a href="#contact" class="btn btn-primary">Contáctanos</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Plan Intermedio -->
+          <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title">Plan Intermedio</h5>
+                <p class="card-text">Para empresas en crecimiento.</p>
+                <p class="h3">$199 / mes</p>
+                <a href="#contact" class="btn btn-primary">Contáctanos</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Plan Avanzado -->
+          <div class="col-md-4" data-aos="fade-up" data-aos-delay="400">
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title">Plan Avanzado</h5>
+                <p class="card-text">
+                  La solución más completa para tu negocio.
+                </p>
+                <p class="h3">$299 / mes</p>
+                <a href="#contact" class="btn btn-primary">Contáctanos</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="py-5">
+      <div class="container text-center">
+        <h2 class="mb-4">Lo que dicen nuestros usuarios</h2>
+        <div
+          id="testimonialCarousel"
+          class="carousel slide"
+          data-bs-ride="carousel"
+        >
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <p>
+                "Este producto ha transformado la forma en que trabajo.
+                ¡Altamente recomendable!"
+              </p>
+              <footer>- Juan Pérez, CEO</footer>
+            </div>
+            <div class="carousel-item">
+              <p>
+                "El mejor soporte que he recibido, siempre atentos a mis
+                necesidades."
+              </p>
+              <footer>- María López, Gerente</footer>
+            </div>
+          </div>
+          <button
+            class="carousel-control-prev"
+            type="button"
+            data-bs-target="#testimonialCarousel"
+            data-bs-slide="prev"
+          >
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button
+            class="carousel-control-next"
+            type="button"
+            data-bs-target="#testimonialCarousel"
+            data-bs-slide="next"
+          >
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-5 bg-dark text-white">
+      <div class="container text-center">
+        <h2 class="mb-4">Contáctanos</h2>
+        <form
+          id="contactForm"
+          action="https://formsubmit.co/your-email"
+          method="POST"
+        >
+          <div class="mb-3">
+            <input
+              type="text"
+              class="form-control"
+              name="name"
+              placeholder="Nombre"
+              required
+            />
+          </div>
+          <div class="mb-3">
+            <input
+              type="email"
+              class="form-control"
+              name="email"
+              placeholder="Correo electrónico"
+              required
+            />
+          </div>
+          <div class="mb-3">
+            <textarea
+              class="form-control"
+              name="message"
+              rows="5"
+              placeholder="Tu mensaje"
+              required
+            ></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary">Enviar mensaje</button>
+        </form>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <p>&copy; 2025 [Nombre del Producto]. Todos los derechos reservados.</p>
+        <p>
+          <a href="#">Política de privacidad</a> |
+          <a href="#">Términos de servicio</a>
+        </p>
+      </div>
+    </footer>
+
+    <!-- Bootstrap 5 & Custom Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.16/dist/sweetalert2.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    <script>
+      AOS.init();
+
+      // Carousel Initialization
+      $(document).ready(function () {
+        $(".carousel").slick({
+          autoplay: true,
+          autoplaySpeed: 3000,
+          dots: true,
+        });
+      });
+
+      // Contact Form Validation
+      document
+        .getElementById("contactForm")
+        .addEventListener("submit", function (event) {
+          event.preventDefault();
+          Swal.fire(
+            "¡Gracias por tu mensaje!",
+            "Nos pondremos en contacto pronto.",
+            "success"
+          );
+        });
+
+      // Initialize Slick Carousel
+      $("#testimonialCarousel").slick({
+        autoplay: true,
+        autoplaySpeed: 3000,
+        arrows: true,
+      });
+    </script>
+  </body>
+</html>
